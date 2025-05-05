@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spring-boot-app
+  labels:
+    app: spring-boot-app
+spec:
+  containers:
+    - name: spring-boot-container
+      image: lucasmcoelho/spring-boot-app:latest
+      ports:
+        - containerPort: 8080
+      env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "prod"
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "500m"
+        limits:
+          memory: "1Gi"
+          cpu: "1"
